@@ -1,0 +1,30 @@
+<h1>Seitenübersicht</h1>
+<?php foreach($this->sitemapdata as $item):?>
+<div style="float: left; padding-left: 30px; padding-top: 30px;">
+    <a href="<?php echo($item->getURL()); ?>">
+        <strong><?php echo($item->getDisplayName());?></strong>
+    </a>
+    <?php foreach($item->getSubmenu() as $subitem):?>
+    <?php if($subitem->getURL() != ''): ?>
+    <br />
+    <a href="<?php echo($subitem->getURL()); ?>">
+        <?php echo($subitem->getDisplayName()); ?>
+    </a>
+    <?php if($subitem->isRrecentlyModified()): ?>
+    <span class="badge badge-secondary">neu!</span>
+    <?php endif; ?>
+    <?php endif; ?>
+    <?php foreach($subitem->getSubmenu() as $subsubitem):?>
+    <?php if($subsubitem->getURL() != ''): ?>
+    <br />
+    <a href="<?php echo($subsubitem->getURL()); ?>">
+        <?php echo($subsubitem->getDisplayName());?>
+    </a>
+    <?php if($subsubitem->isRrecentlyModified()): ?>
+    <span class="badge badge-secondary">neu!</span>
+    <?php endif; ?>
+    <?php endif; ?>
+    <?php endforeach;?>
+    <?php endforeach;?>
+</div>
+<?php endforeach;
