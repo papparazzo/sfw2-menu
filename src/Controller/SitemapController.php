@@ -23,7 +23,7 @@
 namespace SFW2\Menu\Controller;
 
 use SFW2\Routing\AbstractController;
-use SFW2\Bootstrap\Result\Content;
+use SFW2\Routing\Result\Content;
 use SFW2\Menu\Menu\Menu;
 
 class SitemapController extends AbstractController {
