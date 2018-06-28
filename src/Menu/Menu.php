@@ -41,23 +41,23 @@ class Menu {
     /**
      * @var \SFW2\Routing\PathMap
      */
-    protected $path;
+    protected $pathMap;
 
     public function __construct(Database $database, PathMap $path, PermissionInterface $permission) {
         $this->database = $database;
-        $this->path = $path;
+        $this->pathMap = $path;
         $this->permission = $permission;
     }
 
     public function getMainMenu() {
-        return $this->getMenu(0, 1, $this->path->getPathIdOfCurrentTopPath());
+        return $this->getMenu(0, 1, $this->pathMap->getPathIdOfCurrentTopPath());
     }
 
     public function getSideMenu() {
         return $this->getMenu(
-            $this->path->getPathIdOfCurrentTopPath(),
+            $this->pathMap->getPathIdOfCurrentTopPath(),
             2,
-            $this->path->getPathIdOfCurrentPath()
+            $this->pathMap->getPathIdOfCurrentPath()
         );
     }
 
@@ -87,7 +87,7 @@ class Menu {
 
             $url = '';
             if($row['ControllerTemplateId'] != 0) {
-                $url = $this->path->getPath($row['Id']);
+                $url = $this->pathMap->getPath($row['Id']);
             }
             $status = MenuItem::STATUS_IS_NORMAL;
             if($row['Id'] == $checked) {
