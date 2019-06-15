@@ -67,12 +67,11 @@ class Menu {
 
     protected function getMenu(int $parentId, $depth, $checked = 0) {
         $stmt =
-            "SELECT `menu`.`Id`, `ParentPathId`, `menu`.`Name`, `Position`, " .
-            "`sfw2_path`.`ControllerTemplateId`, " .
-            "UNIX_TIMESTAMP(`sfw2_path`.`ModificationDate`) AS `LastModified` " .
-            "FROM  `sfw2_menu` AS `menu` " .
-            "LEFT JOIN `sfw2_path` " .
-            "ON `menu`.`Id` = `sfw2_path`.`Id` " .
+            "SELECT `menu`.`Id`, `ParentPathId`, `menu`.`Name`, `Position`, `path`.`ControllerTemplateId`, " .
+            "UNIX_TIMESTAMP(`path`.`ModificationDate`) AS `LastModified` " .
+            "FROM  `{TABLE_PREFIX}_menu` AS `menu` " .
+            "LEFT JOIN `{TABLE_PREFIX}_path` AS `path` " .
+            "ON `menu`.`Id` = `path`.`Id` " .
             "WHERE `ParentPathId` = '%s' " .
             "ORDER BY `Position` ASC";
 
