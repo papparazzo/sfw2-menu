@@ -26,7 +26,7 @@ use SFW2\Routing\AbstractController;
 use SFW2\Routing\Result\Content;
 use SFW2\Menu\Menu\Menu;
 
-class SitemapController extends AbstractController {
+class Sitemap extends AbstractController {
 
     /**
      * @var \SFW2\Routing\Menu
@@ -39,6 +39,7 @@ class SitemapController extends AbstractController {
     }
 
     public function index($all = false) {
+        unset($all);
         $content = new Content('SFW2\\Menu\\Sitemap');
         $content->assign('title', 'Sitemap');
         $content->assign('sitemapdata', $this->menu->getFullMenu());
