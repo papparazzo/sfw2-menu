@@ -106,6 +106,6 @@ class MenuItem {
     }
 
     protected function hasNewContent() : bool {
-        return (bool)$this->status & self::STATUS_IS_MODIFIED;
+        return $this->status & self::STATUS_IS_MODIFIED;
     }
 }
