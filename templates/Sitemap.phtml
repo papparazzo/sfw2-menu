@@ -1,13 +1,19 @@
 <h1>Seitenübersicht</h1>
 <?php foreach($this->sitemapdata as $item):?>
 <div style="float: left; padding-left: 30px; padding-top: 30px;">
-    <a href="<?php echo($item->getURL()); ?>">
+    <a
+        href="<?php echo($item->getURL()); ?>"
+        title="<?php echo($item->getPrintableModificationDate()); ?>"
+    >
         <strong><?php echo($item->getDisplayName());?></strong>
     </a>
     <?php foreach($item->getSubmenu() as $subitem):?>
     <?php if($subitem->getURL() != ''): ?>
     <br />
-    <a href="<?php echo($subitem->getURL()); ?>">
+    <a
+        href="<?php echo($subitem->getURL()); ?>"
+        title="<?php echo($subitem->getPrintableModificationDate()); ?>"
+    >
         <?php echo($subitem->getDisplayName()); ?>
     </a>
     <?php if($subitem->isRrecentlyModified()): ?>
@@ -17,7 +23,10 @@
     <?php foreach($subitem->getSubmenu() as $subsubitem):?>
     <?php if($subsubitem->getURL() != ''): ?>
     <br />
-    <a href="<?php echo($subsubitem->getURL()); ?>">
+    <a
+        href="<?php echo($subsubitem->getURL()); ?>"
+        title="<?php echo($subsubitem->getPrintableModificationDate()); ?>"
+    >
         <?php echo($subsubitem->getDisplayName());?>
     </a>
     <?php if($subsubitem->isRrecentlyModified()): ?>

@@ -65,6 +65,13 @@ class MenuItem {
         return $this->submen;
     }
 
+    public function getPrintableModificationDate() : string {
+        if($this->lastModified == 0) {
+            return '';
+        }
+        return 'Zuletzt geändert am ' . strftime('%a., %d. %B %G', $this->lastModified);
+    }
+
     public function isRrecentlyModified() : bool {
         return
             $this->hasNewContent() ||

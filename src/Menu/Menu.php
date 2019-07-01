@@ -96,8 +96,7 @@ class Menu {
             if(time() - $row['LastModified'] < (7 * 60 * 60 * 24)) {
                 $status |= MenuItem::STATUS_IS_MODIFIED;
             }
-
-            $item = new MenuItem($row['Name'], $url, $status);
+            $item = new MenuItem($row['Name'], $url, (int)$row['LastModified'], $status);
             if($depth > 1) {
                 $item->addSubMenuItems($this->getMenu($row['Id'], $depth - 1, $checked));
             } else if($depth == -1) {
