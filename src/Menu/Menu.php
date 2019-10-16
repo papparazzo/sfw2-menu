@@ -54,6 +54,14 @@ class Menu {
     }
 
     public function getSideMenu() {
+      #  echo '<pre>';
+      #  print_r($this->getMenu(
+      #      $this->pathMap->getPathIdOfCurrentTopPath(),
+      #      2,
+      #      $this->pathMap->getPathIdOfCurrentPath()
+      #  ));
+
+
         return $this->getMenu(
             $this->pathMap->getPathIdOfCurrentTopPath(),
             2,
@@ -67,12 +75,13 @@ class Menu {
 
     protected function getMenu(int $parentId, $depth, $checked = 0) {
         $stmt =
-            "SELECT `menu`.`Id`, `ParentPathId`, `menu`.`Name`, `Position`, `path`.`ControllerTemplateId`, " .
+            "SELECT `menu`.`Id`, `menu`.`Name`, `menu`.`PathId`, `Position`, " .
+            "`path`.`ControllerTemplateId`, " .
             "UNIX_TIMESTAMP(`path`.`ModificationDate`) AS `LastModified` " .
             "FROM  `{TABLE_PREFIX}_menu` AS `menu` " .
             "LEFT JOIN `{TABLE_PREFIX}_path` AS `path` " .
-            "ON `menu`.`Id` = `path`.`Id` " .
-            "WHERE `ParentPathId` = '%s' " .
+            "ON `menu`.`PathId` = `path`.`Id` " .
+            "WHERE `ParentId` = '%s' " .
             "ORDER BY `Position` ASC";
 
         $res = $this->database->select($stmt, [$parentId]);
@@ -80,13 +89,13 @@ class Menu {
         $map = [];
 
         foreach($res as $row) {
-            if(!$this->permission->getPagePermission($row['Id'])->readOwnAllowed()) {
+            if(!$this->permission->getPagePermission($row['PathId'])->readOwnAllowed()) {
                 continue;
             }
 
             $url = '';
             if($row['ControllerTemplateId'] != 0) {
-                $url = $this->pathMap->getPath($row['Id']);
+                $url = $this->pathMap->getPath($row['PathId']);
             }
             $status = MenuItem::STATUS_IS_NORMAL;
             if($row['Id'] == $checked) {
