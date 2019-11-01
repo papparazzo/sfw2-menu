@@ -49,19 +49,11 @@ class Menu {
         $this->permission = $permission;
     }
 
-    public function getMainMenu() {
+    public function getMainMenu() : array {
         return $this->getMenu(0, 1, $this->pathMap->getPathIdOfCurrentTopPath());
     }
 
-    public function getSideMenu() {
-      #  echo '<pre>';
-      #  print_r($this->getMenu(
-      #      $this->pathMap->getPathIdOfCurrentTopPath(),
-      #      2,
-      #      $this->pathMap->getPathIdOfCurrentPath()
-      #  ));
-
-
+    public function getSideMenu() : array {
         return $this->getMenu(
             $this->pathMap->getPathIdOfCurrentTopPath(),
             2,
@@ -69,11 +61,15 @@ class Menu {
         );
     }
 
-    public function getFullMenu() {
+    public function getFullMenu() : array {
         return $this->getMenu(0, -1);
     }
 
-    protected function getMenu(int $parentId, $depth, $checked = 0) {
+    public function getPath() : PathMap {
+        return $this->pathMap;
+    }
+
+    protected function getMenu(int $parentId, $depth, $checked = 0) : array {
         $stmt =
             "SELECT `menu`.`Id`, `menu`.`Name`, `menu`.`PathId`, `Position`, " .
             "`path`.`ControllerTemplateId`, " .
