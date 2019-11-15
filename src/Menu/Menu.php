@@ -94,7 +94,7 @@ class Menu {
                 $url = $this->pathMap->getPath($row['PathId']);
             }
             $status = MenuItem::STATUS_IS_NORMAL;
-            if($row['Id'] == $checked) {
+            if($row['PathId'] == $checked) {
                 $status |= MenuItem::STATUS_IS_CHECKED;
             }
 
