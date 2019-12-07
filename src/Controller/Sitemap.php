@@ -31,14 +31,14 @@ class Sitemap extends AbstractController {
     /**
      * @var \SFW2\Routing\Menu
      */
-    protected $menu = null;
+    protected Menu $menu;
 
     public function __construct(int $pathId, Menu $menu) {
         $this->menu = $menu;
         parent::__construct($pathId);
     }
 
-    public function index($all = false) {
+    public function index(bool $all = false) : Content {
         unset($all);
         $content = new Content('SFW2\\Menu\\Sitemap');
         $content->assign('title', 'Sitemap');

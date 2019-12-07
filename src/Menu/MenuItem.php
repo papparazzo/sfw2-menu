@@ -28,11 +28,11 @@ class MenuItem {
     const STATUS_IS_CHECKED  = 1;
     const STATUS_IS_MODIFIED = 2;
 
-    protected $url;
-    protected $displayname;
-    protected $status;
-    protected $submen = [];
-    protected $lastModified;
+    protected string $displayname;
+    protected string $url;
+    protected int $status;
+    protected int $lastModified;
+    protected array $submen = [];
 
     public function __construct(string $displayname, string $url, int $lastModified, int $status = self::STATUS_IS_NORMAL) {
         $this->displayname  = $displayname;
@@ -46,7 +46,7 @@ class MenuItem {
     }
 
     public function addSubMenuItems(array $menuItems) : void {
-        $this->submen = array_merge($this->submen, $menuItems);
+        $this->submen = [...$this->submen, ...$menuItems];
     }
 
     public function getURL() : string {

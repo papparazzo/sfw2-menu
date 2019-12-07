@@ -28,20 +28,11 @@ use SFW2\Core\Permission\PermissionInterface;
 
 class Menu {
 
-    /**
-     * @var \SFW2\Permission\PermissionInterface
-     */
-    protected $permission = null;
+    protected PermissionInterface $permission;
 
-    /**
-     * @var \SFW2\Core\Database;
-     */
-    protected $database = null;
+    protected Database $database;
 
-    /**
-     * @var \SFW2\Routing\PathMap
-     */
-    protected $pathMap;
+    protected PathMap $pathMap;
 
     public function __construct(Database $database, PathMap $path, PermissionInterface $permission) {
         $this->database = $database;
