@@ -28,9 +28,6 @@ use SFW2\Menu\Menu\Menu;
 
 class Sitemap extends AbstractController {
 
-    /**
-     * @var \SFW2\Routing\Menu
-     */
     protected Menu $menu;
 
     public function __construct(int $pathId, Menu $menu) {
