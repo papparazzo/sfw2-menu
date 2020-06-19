@@ -5,7 +5,7 @@
 
     "require": {
         "php": "^7.4",
-        "sfw2/validator": "^3.0",
+        "sfw2/validator": "^4.0",
         "sfw2/core": "^2.0"
     },
     "autoload": {
