@@ -4,7 +4,7 @@
     "license": "GNU AFFERO GENERAL PUBLIC LICENSE Version 3",
 
     "require": {
-        "php": "^7.4",
+        "php": "^8.1",
         "sfw2/validator": "^4.0",
         "sfw2/core": "^2.0"
     },
