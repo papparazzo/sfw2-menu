@@ -22,11 +22,13 @@
 
 namespace SFW2\Menu\Menu;
 
+use DateTime;
+
 class MenuItem {
 
-    const STATUS_IS_NORMAL   = 0;
-    const STATUS_IS_CHECKED  = 1;
-    const STATUS_IS_MODIFIED = 2;
+    final public const STATUS_IS_NORMAL   = 0;
+    final public const STATUS_IS_CHECKED  = 1;
+    final public const STATUS_IS_MODIFIED = 2;
 
     protected string $displayname;
     protected string $url;
@@ -41,48 +43,52 @@ class MenuItem {
         $this->lastModified = $lastModified;
     }
 
-    public function addSubMenuItem(MenuItem $menuItem) : void {
+    public function addSubMenuItem(MenuItem $menuItem): void {
         $this->submen[] = $menuItem;
     }
 
-    public function addSubMenuItems(array $menuItems) : void {
+    public function addSubMenuItems(array $menuItems): void {
         $this->submen = [...$this->submen, ...$menuItems];
     }
 
-    public function getURL() : string {
+    public function getURL(): string {
         return $this->url;
     }
 
-    public function getChecked() : int {
+    public function getChecked(): int {
         return $this->status & self::STATUS_IS_CHECKED;
     }
 
-    public function getDisplayName() : string {
+    public function getDisplayName(): string {
         return $this->displayname;
     }
 
-    public function getSubMenu() : array {
+    public function getSubMenu(): array {
         return $this->submen;
     }
 
-    public function getPrintableModificationDate() : string {
-        if($this->lastModified == 0) {
+    /**
+     * @throws \Exception
+     */
+    public function getPrintableModificationDate(): string {
+       # if($this->lastModified == 0) {
             return '';
-        }
-        return 'Zuletzt geändert am ' . strftime('%a., %d. %B %G', $this->lastModified);
+       # }
+        $date = new DateTime($this->lastModified);
+        return "Zuletzt geändert am {$date->format('%a., %d. %B %G', )}";
     }
 
-    public function isRrecentlyModified() : bool {
+    public function isRrecentlyModified(): bool {
         return
             $this->hasNewContent() ||
             $this->hasNewContentSubMenu($this->submen);
     }
 
-    public function getLastModificationDate() : int {
+    public function getLastModificationDate(): int {
         return $this->getNewestModificationDate($this->submen);
     }
 
-    protected function getNewestModificationDate(array $items) : int {
+    protected function getNewestModificationDate(array $items): int {
         $lastModified = $this->lastModified;
 
         foreach($items as $item) {
@@ -99,7 +105,7 @@ class MenuItem {
         return $lastModified;
     }
 
-    protected function hasNewContentSubMenu(array $items) : bool {
+    protected function hasNewContentSubMenu(array $items): bool {
         foreach($items as $item) {
             if($item->hasNewContent()) {
                 return true;
@@ -112,7 +118,7 @@ class MenuItem {
         return false;
     }
 
-    protected function hasNewContent() : bool {
+    protected function hasNewContent(): bool {
         return $this->status & self::STATUS_IS_MODIFIED;
     }
 }

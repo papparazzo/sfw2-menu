@@ -40,7 +40,7 @@ class Menu {
         $this->permission = $permission;
     }
 
-    public function getMainMenu() : array {
+    public function getMainMenu(): array {
         return $this->getMenu(0, 1, $this->pathMap->getPathIdOfCurrentTopPath());
     }
 
@@ -52,11 +52,11 @@ class Menu {
         );
     }
 
-    public function getFullMenu() : array {
+    public function getFullMenu(): array {
         return $this->getMenu(0, -1);
     }
 
-    public function getPath() : PathMap {
+    public function getPath(): PathMap {
         return $this->pathMap;
     }
 
