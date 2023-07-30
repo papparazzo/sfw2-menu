@@ -1,0 +1,197 @@
+
+<style>
+    /* Remove default bullets */
+    .treeview {
+        list-style-type: none;
+    }
+
+    /* Remove margins and padding from the parent ul */
+    #treeview {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Style the caret/arrow */
+    .caret {
+        cursor: pointer;
+        user-select: none; /* Prevent text selection */
+    }
+
+    /* Create the caret/arrow with a unicode, and style it */
+    .caret::before {
+        content: "\25B6";
+        color: black;
+        display: inline-block;
+        margin-right: 6px;
+    }
+
+    /* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+    .caret-down::before {
+        transform: rotate(90deg);
+    }
+
+    /* Hide the nested list */
+    .nested {
+        display: none;
+    }
+
+    /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+    #treeview .active {
+        display: block;
+    }
+</style>
+
+<ul id="treeview" class="treeview">
+
+</ul>
+
+<script>
+(function() {
+  var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
+templates['PathEdit'] = template({"1":function(container,depth0,helpers,partials,data) {
+    var helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return "    <span class=\"caret\">\n        <!--<i class=\"far fa-plus-square\"></i>-->"
+    + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"name") || (depth0 != null ? lookupProperty(depth0,"name") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"name","hash":{},"data":data,"loc":{"start":{"line":4,"column":49},"end":{"line":4,"column":57}}}) : helper)))
+    + "</span>\n";
+},"3":function(container,depth0,helpers,partials,data) {
+    var helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return "    "
+    + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"name") || (depth0 != null ? lookupProperty(depth0,"name") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"name","hash":{},"data":data,"loc":{"start":{"line":6,"column":4},"end":{"line":6,"column":12}}}) : helper)))
+    + "\n";
+},"5":function(container,depth0,helpers,partials,data) {
+    var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return "    <ul class=\"nested treeview\">\n"
+    + ((stack1 = lookupProperty(helpers,"each").call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? lookupProperty(depth0,"subitems") : depth0),{"name":"each","hash":{},"fn":container.program(6, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":42,"column":8},"end":{"line":44,"column":17}}})) != null ? stack1 : "")
+    + "    </ul>\n";
+},"6":function(container,depth0,helpers,partials,data) {
+    var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return ((stack1 = container.invokePartial(lookupProperty(partials,"PathEdit"),depth0,{"name":"PathEdit","hash":{"formid":(depth0 != null ? lookupProperty(depth0,"formid") : depth0),"url":(depth0 != null ? lookupProperty(depth0,"url") : depth0)},"data":data,"indent":"        ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "");
+},"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, alias3="function", alias4=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return "<li>\n"
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,(depth0 != null ? lookupProperty(depth0,"subitems") : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data,"loc":{"start":{"line":2,"column":4},"end":{"line":7,"column":11}}})) != null ? stack1 : "")
+    + "\n    <button\n        type=\"button\"\n        class=\"btn btn-outline-secondary btn-sm\"\n        data-toggle=\"modal\"\n        data-target=\"#deleteDialogModal\"\n        data-url=\""
+    + alias4(((helper = (helper = lookupProperty(helpers,"url") || (depth0 != null ? lookupProperty(depth0,"url") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"url","hash":{},"data":data,"loc":{"start":{"line":14,"column":18},"end":{"line":14,"column":25}}}) : helper)))
+    + "\"\n        data-item-id=\""
+    + alias4(((helper = (helper = lookupProperty(helpers,"id") || (depth0 != null ? lookupProperty(depth0,"id") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data,"loc":{"start":{"line":15,"column":22},"end":{"line":15,"column":28}}}) : helper)))
+    + "\"\n        data-form-id=\""
+    + alias4(((helper = (helper = lookupProperty(helpers,"formid") || (depth0 != null ? lookupProperty(depth0,"formid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"formid","hash":{},"data":data,"loc":{"start":{"line":16,"column":22},"end":{"line":16,"column":32}}}) : helper)))
+    + "\"\n    >-</button>\n    <button\n        type=\"button\"\n        class=\"btn btn-outline-secondary btn-sm\"\n        data-toggle=\"modal\"\n        data-target=\"#createDialogModal\"\n        data-url=\""
+    + alias4(((helper = (helper = lookupProperty(helpers,"url") || (depth0 != null ? lookupProperty(depth0,"url") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"url","hash":{},"data":data,"loc":{"start":{"line":23,"column":18},"end":{"line":23,"column":25}}}) : helper)))
+    + "\"\n        data-form-id=\""
+    + alias4(((helper = (helper = lookupProperty(helpers,"formid") || (depth0 != null ? lookupProperty(depth0,"formid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"formid","hash":{},"data":data,"loc":{"start":{"line":24,"column":22},"end":{"line":24,"column":32}}}) : helper)))
+    + "\"\n    >+</button>\n    <button\n        type=\"button\"\n        class=\"btn btn-outline-secondary btn-sm\"\n        data-toggle=\"modal\"\n        data-target=\"#createDialogModal\"\n        data-url=\""
+    + alias4(((helper = (helper = lookupProperty(helpers,"url") || (depth0 != null ? lookupProperty(depth0,"url") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"url","hash":{},"data":data,"loc":{"start":{"line":31,"column":18},"end":{"line":31,"column":25}}}) : helper)))
+    + "\"\n        data-item-id=\""
+    + alias4(((helper = (helper = lookupProperty(helpers,"id") || (depth0 != null ? lookupProperty(depth0,"id") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data,"loc":{"start":{"line":32,"column":22},"end":{"line":32,"column":28}}}) : helper)))
+    + "\"\n        data-form-id=\""
+    + alias4(((helper = (helper = lookupProperty(helpers,"formid") || (depth0 != null ? lookupProperty(depth0,"formid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"formid","hash":{},"data":data,"loc":{"start":{"line":33,"column":22},"end":{"line":33,"column":32}}}) : helper)))
+    + "\"\n    >+</button>\n    <!--\n    <i class=\"far fa-file\"></i>\n    <i class=\"far fa-edit\"></i>\n    <i class=\"far fa-trash-alt\"></i>\n    -->\n"
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,(depth0 != null ? lookupProperty(depth0,"subitems") : depth0),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":40,"column":4},"end":{"line":46,"column":11}}})) != null ? stack1 : "")
+    + "</li>\n";
+},"usePartial":true,"useData":true});
+})();
+$(document).ready(function() {
+     $.ajax({
+        type: "POST",
+        url:  '<?php echo($this->getCurrentPath()); ?>?do=getData',
+        dataType: "json",
+        success: function(response) {
+            $('#xssToken').val(response.xss);
+            let entries = response.data.pathData;
+
+            let template = Handlebars.templates.PathEdit;
+            //let html = template(response.data);
+            Handlebars.registerPartial('PathEdit', template);
+            let html = template({
+                id: 0,
+                name: '/',
+                subitems: response.data.pathData,
+                formid: response.id,
+                url: '<?php echo($this->getCurrentPath()); ?>'
+            });
+            $('#treeview').html(html);
+
+            var toggler = document.getElementsByClassName("caret");
+            var i;
+
+            for (i = 0; i < toggler.length; i++) {
+                toggler[i].addEventListener("click", function() {
+                this.parentElement.querySelector(".nested").classList.toggle("active");
+                this.classList.toggle("caret-down");
+                });
+            }
+        },
+        error: function(response) {
+            $('#createDialogModal').modal('hide');
+            showErrorDialog(response.responseJSON);
+        }
+    });
+});
+
+</script>
+
+<form id="<?php echo($this->getPathSimplified()); ?>" class="needs-validation noshow" novalidate>
+     <div class="row">
+        <label for="path" class="col-sm-2 col-form-label">Pfadname</label>
+        <div class="col-sm-4">
+            <input
+                type="text"
+                class="form-control form-control-sm"
+                name="path"
+                value=""
+                title="Gib hier bitte einen Pfadnamen ein."
+                maxlength="25"
+            />
+            <div class="invalid-feedback"></div>
+        </div>
+    </div>
+    <div class="row">
+        <label for="controller" class="col-sm-2 col-form-label">Controller</label>
+        <div class="col-sm-4">
+            <select id="r">
+                <?php foreach ($this->controllers as $controller): ?>
+                <option><?php echo($controller['DisplayName']); ?></option>
+                <?php endforeach; ?>
+            </select>
+            <div class="invalid-feedback"></div>
+        </div>
+    </div>
+    <div id="s" class="alert alert-primary" role="alert">
+        A simple primary alert—check it out!
+    </div>
+</form>
+
+<script>
+    $()
+</script>

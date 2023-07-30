@@ -1,0 +1,47 @@
+<li>
+    {{#if subitems}}
+    <span class="caret">
+        <!--<i class="far fa-plus-square"></i>-->{{name}}</span>
+    {{else}}
+    {{name}}
+    {{/if}}
+
+    <button
+        type="button"
+        class="btn btn-outline-secondary btn-sm"
+        data-toggle="modal"
+        data-target="#deleteDialogModal"
+        data-url="{{url}}"
+        data-item-id="{{id}}"
+        data-form-id="{{formid}}"
+    >-</button>
+    <button
+        type="button"
+        class="btn btn-outline-secondary btn-sm"
+        data-toggle="modal"
+        data-target="#createDialogModal"
+        data-url="{{url}}"
+        data-form-id="{{formid}}"
+    >+</button>
+    <button
+        type="button"
+        class="btn btn-outline-secondary btn-sm"
+        data-toggle="modal"
+        data-target="#createDialogModal"
+        data-url="{{url}}"
+        data-item-id="{{id}}"
+        data-form-id="{{formid}}"
+    >+</button>
+    <!--
+    <i class="far fa-file"></i>
+    <i class="far fa-edit"></i>
+    <i class="far fa-trash-alt"></i>
+    -->
+    {{#if subitems}}
+    <ul class="nested treeview">
+        {{#each subitems}}
+        {{> PathEdit url=this.url formid=this.formid }}
+        {{/each}}
+    </ul>
+    {{/if}}
+</li>
