@@ -1,5 +1,6 @@
-/src/vendor
+/vendor/
 
-# netbeans project files
+# project files
 /nbproject/
-/.idea
+/.idea/
+/.vscode/
