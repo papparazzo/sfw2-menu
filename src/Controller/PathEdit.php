@@ -59,7 +59,7 @@ class PathEdit extends AbstractController {
 
 
     protected function getPathData(int $parentId = 0): array {
-        $stmt =
+        $stmt = /** @lang MySQL */
             "SELECT `Id`, `Name`, `ControllerTemplateId`, `JsonData` " .
             "FROM `{TABLE_PREFIX}_path` " .
             "WHERE `ParentPathId` = '%s'";
