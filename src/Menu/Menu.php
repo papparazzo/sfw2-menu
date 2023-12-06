@@ -22,33 +22,31 @@
 
 namespace SFW2\Menu\Menu;
 
-use SFW2\Routing\PathMap\PathMap;
-use SFW2\Core\Database;
-use SFW2\Core\Permission\PermissionInterface;
+use SFW2\Database\DatabaseInterface;
+use SFW2\Routing\PathMap\PathMapInterface;
 
 class Menu {
 
-    protected PermissionInterface $permission;
+    #protected PermissionInterface $permission;
 
-    protected Database $database;
-
-    protected PathMap $pathMap;
-
-    public function __construct(Database $database, PathMap $path, PermissionInterface $permission) {
-        $this->database = $database;
-        $this->pathMap = $path;
-        $this->permission = $permission;
+    public function __construct(
+        protected DatabaseInterface $database,
+        protected PathMapInterface $pathmap
+        #,
+        #PermissionInterface $permission
+    ) {
+        #$this->permission = $permission;
     }
 
     public function getMainMenu(): array {
-        return $this->getMenu(0, 1, $this->pathMap->getPathIdOfCurrentTopPath());
+        return $this->getMenu(0, 1, $this->pathmap->getPathIdOfCurrentTopPath());
     }
 
     public function getSideMenu() : array {
         return $this->getMenu(
-            $this->pathMap->getPathIdOfCurrentTopPath(),
+            $this->pathmap->getPathIdOfCurrentTopPath(),
             2,
-            $this->pathMap->getPathIdOfCurrentPath()
+            $this->pathmap->getPathIdOfCurrentPath()
         );
     }
 
@@ -56,8 +54,8 @@ class Menu {
         return $this->getMenu(0, -1);
     }
 
-    public function getPath(): PathMap {
-        return $this->pathMap;
+    public function getPath(): PathMapInterface {
+        return $this->pathmap;
     }
 
     protected function getMenu(int $parentId, $depth, $checked = 0) : array {
@@ -76,13 +74,14 @@ class Menu {
         $map = [];
 
         foreach($res as $row) {
-            if(!$this->permission->getPagePermission($row['PathId'])->readOwnAllowed()) {
-                continue;
-            }
+          #  TODO:
+          #  if(!$this->permission->getPagePermission($row['PathId'])->readOwnAllowed()) {
+          #      continue;
+          #  }
 
             $url = '';
             if($row['ControllerTemplateId'] != 0) {
-                $url = $this->pathMap->getPath($row['PathId']);
+                $url = $this->pathmap->getPath($row['PathId']);
             }
             $status = MenuItem::STATUS_IS_NORMAL;
             if($row['PathId'] == $checked) {
