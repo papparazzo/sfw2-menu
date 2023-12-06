@@ -29,7 +29,7 @@ class MenuMiddleware implements MiddlewareInterface
         $currentPath = $request->getUri()->getPath();
 
         $activePathId = 0;
-        if($this->pathmap->isValidPath($currentPath)) {
+        if($this->pathmap->hasPath($currentPath)) {
             $activePathId = $this->pathmap->getPathId($request->getUri()->getPath());
         }
 
