@@ -22,24 +22,21 @@
 
 namespace SFW2\Menu\Controller;
 
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use SFW2\Routing\AbstractController;
-use SFW2\Routing\Result\Content;
+use SFW2\Routing\ResponseEngine;
 use SFW2\Menu\Menu\Menu;
 
 class Sitemap extends AbstractController {
 
-    protected Menu $menu;
-
-    public function __construct(int $pathId, Menu $menu) {
-        $this->menu = $menu;
-        parent::__construct($pathId);
+    public function __construct(
+        protected Menu $menu
+    ) {
     }
 
-    public function index(bool $all = false): Content {
-        unset($all);
-        $content = new Content('SFW2\\Menu\\Sitemap');
-        $content->assign('title', 'Sitemap');
-        $content->assign('sitemapdata', $this->menu->getFullMenu());
-        return $content;
+    public function index(Request $request, ResponseEngine $responseEngine): Response
+    {
+        return $responseEngine->render($request, ['title'=> 'Sitemap', 'sitemapdata' => $this->menu->getFullMenu()], 'SFW2\\Menu\\Sitemap');
     }
 }
