@@ -22,35 +22,30 @@
 
 namespace SFW2\Menu\Controller;
 
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use SFW2\Database\DatabaseInterface;
 use SFW2\Routing\AbstractController;
-use SFW2\Routing\Result\Content;
+use SFW2\Routing\ResponseEngine;
 
-use SFW2\Core\Database;
-
-class PathEdit extends AbstractController {
-
-    protected Database $database;
-
-    public function __construct(int $pathId, Database $database) {
-        parent::__construct($pathId);
-        $this->database = $database;
+class PathEdit extends AbstractController
+{
+    public function __construct(
+        protected DatabaseInterface $database
+    ) {
     }
 
-    public function index(bool $all = false): Content {
-        unset($all);
-        $content = new Content('SFW2\\Menu\\PathEdit');
-        $content->assign('controllers', $this->getController());
-        return $content;
+    public function index(Request $request, ResponseEngine $responseEngine): Response
+    {
+        return $responseEngine->render(
+            $request,
+            $this->getController(),
+            'SFW2\\Menu\\PathEdit'
+        );
     }
 
-
-    public function getData(): Content {
-        $content = new Content();
-        $content->assign('pathData', $this->getPathData());
-        return $content;
-    }
-
-    protected function getController() {
+    protected function getController(): array
+    {
         $stmt =
             "SELECT `Id`, `DisplayName`, `Description` " .
             "FROM `{TABLE_PREFIX}_controller_template` AS `controller_template` ";
@@ -58,7 +53,8 @@ class PathEdit extends AbstractController {
     }
 
 
-    protected function getPathData(int $parentId = 0): array {
+    protected function getPathData(int $parentId = 0): array
+    {
         $stmt = /** @lang MySQL */
             "SELECT `Id`, `Name`, `ControllerTemplateId`, `JsonData` " .
             "FROM `{TABLE_PREFIX}_path` " .
