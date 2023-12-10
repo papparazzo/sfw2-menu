@@ -22,7 +22,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `{TABLE_PREFIX}_menu` (
-    `Id`       int         UNSIGNED auto_increment primary key,
+    `Id`       int         UNSIGNED AUTO_INCREMENT,
     `ParentId` int(11)     UNSIGNED NOT NULL,
     `Position` tinyint(11) UNSIGNED NOT NULL,
     `PathId`   int(11)     UNSIGNED NOT NULL,
