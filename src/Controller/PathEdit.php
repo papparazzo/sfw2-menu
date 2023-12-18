@@ -46,7 +46,7 @@ class PathEdit extends AbstractController
 
     protected function getController(): array
     {
-        $stmt =
+        $stmt = /** @lang MySQL */
             "SELECT `Id`, `DisplayName`, `Description` " .
             "FROM `{TABLE_PREFIX}_controller_template` AS `controller_template` ";
         return $this->database->select($stmt);
