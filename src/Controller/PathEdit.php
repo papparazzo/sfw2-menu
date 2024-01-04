@@ -58,7 +58,7 @@ class PathEdit extends AbstractController
         $stmt = /** @lang MySQL */
             "SELECT `Id`, `Name`, `ControllerTemplateId`, `JsonData` " .
             "FROM `{TABLE_PREFIX}_path` " .
-            "WHERE `ParentPathId` = '%s'";
+            "WHERE `ParentPathId` = %s";
 
         $res = $this->database->select($stmt, [$parentId]);
 

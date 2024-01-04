@@ -9,12 +9,13 @@ use Psr\Http\Server\RequestHandlerInterface;
 use SFW2\Database\DatabaseInterface;
 use SFW2\Routing\PathMap\PathMapInterface;
 
-class MenuMiddleware implements MiddlewareInterface
+final class MenuMiddleware implements MiddlewareInterface
 {
 
     public function __construct(
-        protected DatabaseInterface $database, // FIXME use repository instead of databaseinterface!
-        protected PathMapInterface $pathmap
+        private readonly DatabaseInterface $database, // FIXME use repository instead of databaseinterface!
+        private readonly PathMapInterface  $pathmap,
+        #private PermissionInterface $permission,
     )
     {
     }
@@ -24,7 +25,7 @@ class MenuMiddleware implements MiddlewareInterface
         $stmt =
             "SELECT `Id`, `Name` As `name`, `PathId`, `Position` FROM `{TABLE_PREFIX}_menu` " .
             "WHERE `ParentId` = 0 " .
-            "ORDER BY `Position` ASC";
+            "ORDER BY `Position`";
 
         $currentPath = $request->getUri()->getPath();
 
