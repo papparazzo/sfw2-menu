@@ -6,6 +6,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
+use SFW2\Database\DatabaseException;
 use SFW2\Database\DatabaseInterface;
 use SFW2\Routing\PathMap\PathMapInterface;
 
@@ -20,6 +21,9 @@ final class MenuMiddleware implements MiddlewareInterface
     {
     }
 
+    /**
+     * @throws DatabaseException
+     */
     public function process(Request $request, RequestHandlerInterface $handler): Response
     {
         $stmt =
