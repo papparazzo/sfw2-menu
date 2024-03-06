@@ -22,6 +22,7 @@
 
 namespace SFW2\Menu\Menu;
 
+use SFW2\Database\DatabaseException;
 use SFW2\Database\DatabaseInterface;
 use SFW2\Routing\PathMap\PathMapInterface;
 
@@ -33,26 +34,13 @@ class Menu
     public function __construct(
         protected DatabaseInterface $database,
         protected PathMapInterface  $pathmap
-        #PermissionInterface $permission
     )
     {
-        #$this->permission = $permission;
     }
 
-    public function getMainMenu(): array
-    {
-        return $this->getMenu(0, 1, $this->pathmap->getPathIdOfCurrentTopPath());
-    }
-
-    public function getSideMenu(): array
-    {
-        return $this->getMenu(
-            $this->pathmap->getPathIdOfCurrentTopPath(),
-            2,
-            $this->pathmap->getPathIdOfCurrentPath()
-        );
-    }
-
+    /**
+     * @throws DatabaseException
+     */
     public function getFullMenu(): array
     {
         return $this->getMenu(0, -1);
@@ -63,6 +51,9 @@ class Menu
         return $this->pathmap;
     }
 
+    /**
+     * @throws DatabaseException
+     */
     protected function getMenu(int $parentId, $depth, $checked = 0): array
     {
         $stmt = /** @lang MySQL */
@@ -73,7 +64,7 @@ class Menu
             "LEFT JOIN `{TABLE_PREFIX}_path` AS `path` " .
             "ON `menu`.`PathId` = `path`.`Id` " .
             "WHERE `ParentId` = %s " .
-            "ORDER BY `Position` ASC";
+            "ORDER BY `Position` ";
 
         $res = $this->database->select($stmt, [$parentId]);
 
