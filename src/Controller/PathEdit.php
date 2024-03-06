@@ -24,6 +24,7 @@ namespace SFW2\Menu\Controller;
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use SFW2\Database\DatabaseException;
 use SFW2\Database\DatabaseInterface;
 use SFW2\Routing\AbstractController;
 use SFW2\Routing\ResponseEngine;
@@ -35,6 +36,9 @@ class PathEdit extends AbstractController
     ) {
     }
 
+    /**
+     * @throws DatabaseException
+     */
     public function index(Request $request, ResponseEngine $responseEngine): Response
     {
         return $responseEngine->render(
@@ -44,6 +48,9 @@ class PathEdit extends AbstractController
         );
     }
 
+    /**
+     * @throws DatabaseException
+     */
     protected function getController(): array
     {
         $stmt = /** @lang MySQL */
@@ -53,6 +60,9 @@ class PathEdit extends AbstractController
     }
 
 
+    /**
+     * @throws DatabaseException
+     */
     protected function getPathData(int $parentId = 0): array
     {
         $stmt = /** @lang MySQL */
