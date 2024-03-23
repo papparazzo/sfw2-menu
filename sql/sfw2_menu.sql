@@ -22,12 +22,11 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `{TABLE_PREFIX}_menu` (
-    `Id`       int         UNSIGNED AUTO_INCREMENT,
+    `Id`       int         UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     `ParentId` int(11)     UNSIGNED NOT NULL,
     `Position` tinyint(11) UNSIGNED NOT NULL,
     `PathId`   int(11)     UNSIGNED NOT NULL,
     `Name`     varchar(25)          NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-ALTER TABLE `{TABLE_PREFIX}_menu` ADD PRIMARY KEY (`Id`);
 /* FIXME Do not forget to add foreign key constrains! */
