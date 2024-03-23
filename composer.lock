@@ -684,16 +684,16 @@
         },
         {
             "name": "sfw2/core",
-            "version": "5.2.0",
+            "version": "5.3.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:papparazzo/sfw2-core.git",
-                "reference": "8426ede0138f55145a76e96aee0dc55fb2ac85ac"
+                "reference": "315d01998505b2f5684d334a42515b2849900648"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/papparazzo/sfw2-core/zipball/8426ede0138f55145a76e96aee0dc55fb2ac85ac",
-                "reference": "8426ede0138f55145a76e96aee0dc55fb2ac85ac",
+                "url": "https://api.github.com/repos/papparazzo/sfw2-core/zipball/315d01998505b2f5684d334a42515b2849900648",
+                "reference": "315d01998505b2f5684d334a42515b2849900648",
                 "shasum": ""
             },
             "require": {
@@ -714,7 +714,7 @@
             "license": [
                 "GNU AFFERO GENERAL PUBLIC LICENSE Version 3"
             ],
-            "time": "2024-01-02T15:06:37+00:00"
+            "time": "2024-03-09T19:39:02+00:00"
         },
         {
             "name": "sfw2/database",
