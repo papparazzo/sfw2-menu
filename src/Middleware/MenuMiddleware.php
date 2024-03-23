@@ -6,6 +6,9 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
+use SFW2\Core\Permission\AccessType;
+use SFW2\Core\Permission\PermissionDummy;
+use SFW2\Core\Permission\PermissionInterface;
 use SFW2\Database\DatabaseException;
 use SFW2\Database\DatabaseInterface;
 use SFW2\Routing\PathMap\PathMapInterface;
@@ -16,7 +19,7 @@ final class MenuMiddleware implements MiddlewareInterface
     public function __construct(
         private readonly DatabaseInterface $database, // FIXME use repository instead of databaseinterface!
         private readonly PathMapInterface  $pathmap,
-        #private PermissionInterface $permission,
+        private readonly ?PermissionInterface $permission = new PermissionDummy()
     )
     {
     }
