@@ -44,8 +44,11 @@ final class MenuMiddleware implements MiddlewareInterface
         $res = $this->database->select($stmt);
 
         foreach($res as &$item) {
-             $item['active'] = ($activePathId == $item["PathId"]);
-             $item['href'] = $this->pathmap->getPath($item["PathId"]);
+            if($this->permission->checkPermission($item["PathId"], '*') == AccessType::VORBIDDEN) {
+                continue;
+            }
+            $item['active'] = ($activePathId == $item["PathId"]);
+            $item['href'] = $this->pathmap->getPath($item["PathId"]);
         }
 
         $request = $request->withAttribute('sfw2_menu', $res);
