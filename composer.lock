@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "13a8b936ef373d249cfec65fc5cb4709",
+    "content-hash": "cb88a0ee7a9f1598bcc8f0a9068f93fb",
     "packages": [
         {
             "name": "fig/http-message-util",
@@ -684,16 +684,16 @@
         },
         {
             "name": "sfw2/core",
-            "version": "5.3.0",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:papparazzo/sfw2-core.git",
-                "reference": "315d01998505b2f5684d334a42515b2849900648"
+                "reference": "ea2601df3819a76ec33052f897963600f876bfa9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/papparazzo/sfw2-core/zipball/315d01998505b2f5684d334a42515b2849900648",
-                "reference": "315d01998505b2f5684d334a42515b2849900648",
+                "url": "https://api.github.com/repos/papparazzo/sfw2-core/zipball/ea2601df3819a76ec33052f897963600f876bfa9",
+                "reference": "ea2601df3819a76ec33052f897963600f876bfa9",
                 "shasum": ""
             },
             "require": {
@@ -714,20 +714,20 @@
             "license": [
                 "GNU AFFERO GENERAL PUBLIC LICENSE Version 3"
             ],
-            "time": "2024-03-09T19:39:02+00:00"
+            "time": "2024-04-01T06:21:40+00:00"
         },
         {
             "name": "sfw2/database",
-            "version": "4.0.0",
+            "version": "4.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:papparazzo/sfw2-database.git",
-                "reference": "7c24176e8db6207f20e50178b20c982fc2f8c704"
+                "reference": "2dec8b5311999a45f28be7b73de3fa24b3645ddb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/papparazzo/sfw2-database/zipball/7c24176e8db6207f20e50178b20c982fc2f8c704",
-                "reference": "7c24176e8db6207f20e50178b20c982fc2f8c704",
+                "url": "https://api.github.com/repos/papparazzo/sfw2-database/zipball/2dec8b5311999a45f28be7b73de3fa24b3645ddb",
+                "reference": "2dec8b5311999a45f28be7b73de3fa24b3645ddb",
                 "shasum": ""
             },
             "require": {
@@ -747,20 +747,20 @@
             "license": [
                 "GNU AFFERO GENERAL PUBLIC LICENSE Version 3"
             ],
-            "time": "2024-02-29T20:55:14+00:00"
+            "time": "2024-03-16T06:16:43+00:00"
         },
         {
             "name": "sfw2/routing",
-            "version": "7.2.0",
+            "version": "7.3.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:papparazzo/sfw2-routing.git",
-                "reference": "c1655473d81e5d7d72222751f93f939b9d85e8d2"
+                "reference": "3ff312b04c68e27cc7524280d18f8370a73c18f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/papparazzo/sfw2-routing/zipball/c1655473d81e5d7d72222751f93f939b9d85e8d2",
-                "reference": "c1655473d81e5d7d72222751f93f939b9d85e8d2",
+                "url": "https://api.github.com/repos/papparazzo/sfw2-routing/zipball/3ff312b04c68e27cc7524280d18f8370a73c18f6",
+                "reference": "3ff312b04c68e27cc7524280d18f8370a73c18f6",
                 "shasum": ""
             },
             "require": {
@@ -775,7 +775,7 @@
                 "psr/log": "^3.0.0",
                 "psr/simple-cache": "^3.0.0",
                 "salesforce/handlebars-php": "^3.0.1",
-                "sfw2/core": "^5.0"
+                "sfw2/core": "^6.0"
             },
             "require-dev": {
                 "phpstan/phpstan": "^1.10"
@@ -789,7 +789,7 @@
             "license": [
                 "GNU AFFERO GENERAL PUBLIC LICENSE Version 3"
             ],
-            "time": "2024-02-04T06:58:59+00:00"
+            "time": "2024-04-02T19:49:30+00:00"
         },
         {
             "name": "sfw2/validator",
