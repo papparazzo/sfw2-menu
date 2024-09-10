@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cb88a0ee7a9f1598bcc8f0a9068f93fb",
+    "content-hash": "fa1733eff84e91ba1aab914d0952d189",
     "packages": [
         {
             "name": "fig/http-message-util",
@@ -64,26 +64,27 @@
         },
         {
             "name": "laravel/serializable-closure",
-            "version": "v1.3.3",
+            "version": "v1.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/serializable-closure.git",
-                "reference": "3dbf8a8e914634c48d389c1234552666b3d43754"
+                "reference": "61b87392d986dc49ad5ef64e75b1ff5fee24ef81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/serializable-closure/zipball/3dbf8a8e914634c48d389c1234552666b3d43754",
-                "reference": "3dbf8a8e914634c48d389c1234552666b3d43754",
+                "url": "https://api.github.com/repos/laravel/serializable-closure/zipball/61b87392d986dc49ad5ef64e75b1ff5fee24ef81",
+                "reference": "61b87392d986dc49ad5ef64e75b1ff5fee24ef81",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.3|^8.0"
             },
             "require-dev": {
-                "nesbot/carbon": "^2.61",
+                "illuminate/support": "^8.0|^9.0|^10.0|^11.0",
+                "nesbot/carbon": "^2.61|^3.0",
                 "pestphp/pest": "^1.21.3",
                 "phpstan/phpstan": "^1.8.2",
-                "symfony/var-dumper": "^5.4.11"
+                "symfony/var-dumper": "^5.4.11|^6.2.0|^7.0.0"
             },
             "type": "library",
             "extra": {
@@ -120,7 +121,7 @@
                 "issues": "https://github.com/laravel/serializable-closure/issues",
                 "source": "https://github.com/laravel/serializable-closure"
             },
-            "time": "2023-11-08T14:08:06+00:00"
+            "time": "2024-08-02T07:48:17+00:00"
         },
         {
             "name": "php-di/invoker",
@@ -179,16 +180,16 @@
         },
         {
             "name": "php-di/php-di",
-            "version": "7.0.6",
+            "version": "7.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-DI/PHP-DI.git",
-                "reference": "8097948a89f6ec782839b3e958432f427cac37fd"
+                "reference": "e87435e3c0e8f22977adc5af0d5cdcc467e15cf1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-DI/PHP-DI/zipball/8097948a89f6ec782839b3e958432f427cac37fd",
-                "reference": "8097948a89f6ec782839b3e958432f427cac37fd",
+                "url": "https://api.github.com/repos/PHP-DI/PHP-DI/zipball/e87435e3c0e8f22977adc5af0d5cdcc467e15cf1",
+                "reference": "e87435e3c0e8f22977adc5af0d5cdcc467e15cf1",
                 "shasum": ""
             },
             "require": {
@@ -236,7 +237,7 @@
             ],
             "support": {
                 "issues": "https://github.com/PHP-DI/PHP-DI/issues",
-                "source": "https://github.com/PHP-DI/PHP-DI/tree/7.0.6"
+                "source": "https://github.com/PHP-DI/PHP-DI/tree/7.0.7"
             },
             "funding": [
                 {
@@ -248,7 +249,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-11-02T10:04:50+00:00"
+            "time": "2024-07-21T15:55:45+00:00"
         },
         {
             "name": "psr/container",
@@ -305,20 +306,20 @@
         },
         {
             "name": "psr/http-factory",
-            "version": "1.0.2",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-factory.git",
-                "reference": "e616d01114759c4c489f93b099585439f795fe35"
+                "reference": "2b4765fddfe3b508ac62f829e852b1501d3f6e8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/e616d01114759c4c489f93b099585439f795fe35",
-                "reference": "e616d01114759c4c489f93b099585439f795fe35",
+                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/2b4765fddfe3b508ac62f829e852b1501d3f6e8a",
+                "reference": "2b4765fddfe3b508ac62f829e852b1501d3f6e8a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.0.0",
+                "php": ">=7.1",
                 "psr/http-message": "^1.0 || ^2.0"
             },
             "type": "library",
@@ -342,7 +343,7 @@
                     "homepage": "https://www.php-fig.org/"
                 }
             ],
-            "description": "Common interfaces for PSR-7 HTTP message factories",
+            "description": "PSR-17: Common interfaces for PSR-7 HTTP message factories",
             "keywords": [
                 "factory",
                 "http",
@@ -354,9 +355,9 @@
                 "response"
             ],
             "support": {
-                "source": "https://github.com/php-fig/http-factory/tree/1.0.2"
+                "source": "https://github.com/php-fig/http-factory"
             },
-            "time": "2023-04-10T20:10:41+00:00"
+            "time": "2024-04-15T12:06:14+00:00"
         },
         {
             "name": "psr/http-message",
@@ -526,16 +527,16 @@
         },
         {
             "name": "psr/log",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "fe5ea303b0887d5caefd3d431c3e61ad47037001"
+                "reference": "79dff0b268932c640297f5208d6298f71855c03e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe5ea303b0887d5caefd3d431c3e61ad47037001",
-                "reference": "fe5ea303b0887d5caefd3d431c3e61ad47037001",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/79dff0b268932c640297f5208d6298f71855c03e",
+                "reference": "79dff0b268932c640297f5208d6298f71855c03e",
                 "shasum": ""
             },
             "require": {
@@ -570,9 +571,9 @@
                 "psr-3"
             ],
             "support": {
-                "source": "https://github.com/php-fig/log/tree/3.0.0"
+                "source": "https://github.com/php-fig/log/tree/3.0.1"
             },
-            "time": "2021-07-14T16:46:02+00:00"
+            "time": "2024-08-21T13:31:24+00:00"
         },
         {
             "name": "psr/simple-cache",
@@ -684,16 +685,16 @@
         },
         {
             "name": "sfw2/core",
-            "version": "6.0.0",
+            "version": "7.0.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:papparazzo/sfw2-core.git",
-                "reference": "ea2601df3819a76ec33052f897963600f876bfa9"
+                "reference": "6d61cc1ecbeff6c3a4c9db277f5ba511d17e4b9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/papparazzo/sfw2-core/zipball/ea2601df3819a76ec33052f897963600f876bfa9",
-                "reference": "ea2601df3819a76ec33052f897963600f876bfa9",
+                "url": "https://api.github.com/repos/papparazzo/sfw2-core/zipball/6d61cc1ecbeff6c3a4c9db277f5ba511d17e4b9a",
+                "reference": "6d61cc1ecbeff6c3a4c9db277f5ba511d17e4b9a",
                 "shasum": ""
             },
             "require": {
@@ -701,7 +702,7 @@
                 "ext-intl": "*",
                 "ext-mbstring": "*",
                 "fig/http-message-util": "^1.1.5",
-                "php": "^8.2",
+                "php": "^8.3",
                 "psr/container": "^2.0.2",
                 "salesforce/handlebars-php": "^3.0.1"
             },
@@ -714,7 +715,7 @@
             "license": [
                 "GNU AFFERO GENERAL PUBLIC LICENSE Version 3"
             ],
-            "time": "2024-04-01T06:21:40+00:00"
+            "time": "2024-09-07T05:39:46+00:00"
         },
         {
             "name": "sfw2/database",
@@ -751,23 +752,23 @@
         },
         {
             "name": "sfw2/routing",
-            "version": "7.3.0",
+            "version": "8.0.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:papparazzo/sfw2-routing.git",
-                "reference": "3ff312b04c68e27cc7524280d18f8370a73c18f6"
+                "reference": "69b201dd4febcd948a31b5e4e0fa739fa32b5ed6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/papparazzo/sfw2-routing/zipball/3ff312b04c68e27cc7524280d18f8370a73c18f6",
-                "reference": "3ff312b04c68e27cc7524280d18f8370a73c18f6",
+                "url": "https://api.github.com/repos/papparazzo/sfw2-routing/zipball/69b201dd4febcd948a31b5e4e0fa739fa32b5ed6",
+                "reference": "69b201dd4febcd948a31b5e4e0fa739fa32b5ed6",
                 "shasum": ""
             },
             "require": {
                 "ext-fileinfo": "*",
                 "ext-json": "*",
                 "ext-mbstring": "*",
-                "php": "^8.2",
+                "php": "^8.3",
                 "php-di/php-di": "^7.0.5",
                 "psr/container": "^2.0",
                 "psr/http-factory": "^1.0",
@@ -775,7 +776,7 @@
                 "psr/log": "^3.0.0",
                 "psr/simple-cache": "^3.0.0",
                 "salesforce/handlebars-php": "^3.0.1",
-                "sfw2/core": "^6.0"
+                "sfw2/core": "^7.0"
             },
             "require-dev": {
                 "phpstan/phpstan": "^1.10"
@@ -789,7 +790,7 @@
             "license": [
                 "GNU AFFERO GENERAL PUBLIC LICENSE Version 3"
             ],
-            "time": "2024-04-02T19:49:30+00:00"
+            "time": "2024-09-09T15:42:45+00:00"
         },
         {
             "name": "sfw2/validator",
@@ -838,8 +839,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.1"
+        "php": "^8.3"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
