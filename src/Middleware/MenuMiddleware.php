@@ -15,7 +15,6 @@ use SFW2\Database\DatabaseInterface;
 
 final class MenuMiddleware implements MiddlewareInterface
 {
-
     public function __construct(
         private readonly DatabaseInterface $database, // FIXME use repository instead of databaseinterface!
         private readonly PathMapInterface  $pathmap,
@@ -44,7 +43,7 @@ final class MenuMiddleware implements MiddlewareInterface
         $res = $this->database->select($stmt);
 
         foreach($res as &$item) {
-            if($this->permission->checkPermission($item["PathId"], '*') == AccessType::VORBIDDEN) {
+            if($this->permission->checkPermission($item["PathId"], '*') == AccessType::FORBIDDEN) {
                 continue;
             }
             $item['active'] = ($activePathId == $item["PathId"]);
