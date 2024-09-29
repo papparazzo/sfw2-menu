@@ -64,16 +64,16 @@
         },
         {
             "name": "laravel/serializable-closure",
-            "version": "v1.3.4",
+            "version": "v1.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/serializable-closure.git",
-                "reference": "61b87392d986dc49ad5ef64e75b1ff5fee24ef81"
+                "reference": "1dc4a3dbfa2b7628a3114e43e32120cce7cdda9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/serializable-closure/zipball/61b87392d986dc49ad5ef64e75b1ff5fee24ef81",
-                "reference": "61b87392d986dc49ad5ef64e75b1ff5fee24ef81",
+                "url": "https://api.github.com/repos/laravel/serializable-closure/zipball/1dc4a3dbfa2b7628a3114e43e32120cce7cdda9c",
+                "reference": "1dc4a3dbfa2b7628a3114e43e32120cce7cdda9c",
                 "shasum": ""
             },
             "require": {
@@ -121,7 +121,7 @@
                 "issues": "https://github.com/laravel/serializable-closure/issues",
                 "source": "https://github.com/laravel/serializable-closure"
             },
-            "time": "2024-08-02T07:48:17+00:00"
+            "time": "2024-09-23T13:33:08+00:00"
         },
         {
             "name": "php-di/invoker",
@@ -527,16 +527,16 @@
         },
         {
             "name": "psr/log",
-            "version": "3.0.1",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "79dff0b268932c640297f5208d6298f71855c03e"
+                "reference": "f16e1d5863e37f8d8c2a01719f5b34baa2b714d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/79dff0b268932c640297f5208d6298f71855c03e",
-                "reference": "79dff0b268932c640297f5208d6298f71855c03e",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/f16e1d5863e37f8d8c2a01719f5b34baa2b714d3",
+                "reference": "f16e1d5863e37f8d8c2a01719f5b34baa2b714d3",
                 "shasum": ""
             },
             "require": {
@@ -571,9 +571,9 @@
                 "psr-3"
             ],
             "support": {
-                "source": "https://github.com/php-fig/log/tree/3.0.1"
+                "source": "https://github.com/php-fig/log/tree/3.0.2"
             },
-            "time": "2024-08-21T13:31:24+00:00"
+            "time": "2024-09-11T13:17:53+00:00"
         },
         {
             "name": "psr/simple-cache",
@@ -688,7 +688,7 @@
             "version": "7.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:papparazzo/sfw2-core.git",
+                "url": "https://github.com/papparazzo/sfw2-core.git",
                 "reference": "6d61cc1ecbeff6c3a4c9db277f5ba511d17e4b9a"
             },
             "dist": {
@@ -715,6 +715,10 @@
             "license": [
                 "GNU AFFERO GENERAL PUBLIC LICENSE Version 3"
             ],
+            "support": {
+                "source": "https://github.com/papparazzo/sfw2-core/tree/7.0.0",
+                "issues": "https://github.com/papparazzo/sfw2-core/issues"
+            },
             "time": "2024-09-07T05:39:46+00:00"
         },
         {
@@ -722,7 +726,7 @@
             "version": "4.0.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:papparazzo/sfw2-database.git",
+                "url": "https://github.com/papparazzo/sfw2-database.git",
                 "reference": "2dec8b5311999a45f28be7b73de3fa24b3645ddb"
             },
             "dist": {
@@ -748,6 +752,10 @@
             "license": [
                 "GNU AFFERO GENERAL PUBLIC LICENSE Version 3"
             ],
+            "support": {
+                "source": "https://github.com/papparazzo/sfw2-database/tree/4.0.1",
+                "issues": "https://github.com/papparazzo/sfw2-database/issues"
+            },
             "time": "2024-03-16T06:16:43+00:00"
         },
         {
@@ -755,7 +763,7 @@
             "version": "8.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:papparazzo/sfw2-routing.git",
+                "url": "https://github.com/papparazzo/sfw2-routing.git",
                 "reference": "69b201dd4febcd948a31b5e4e0fa739fa32b5ed6"
             },
             "dist": {
@@ -790,20 +798,24 @@
             "license": [
                 "GNU AFFERO GENERAL PUBLIC LICENSE Version 3"
             ],
+            "support": {
+                "source": "https://github.com/papparazzo/sfw2-routing/tree/8.0.0",
+                "issues": "https://github.com/papparazzo/sfw2-routing/issues"
+            },
             "time": "2024-09-09T15:42:45+00:00"
         },
         {
             "name": "sfw2/validator",
-            "version": "6.2.0",
+            "version": "6.3.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:papparazzo/sfw2-validator.git",
-                "reference": "a3e0c48aa608495f8dce0299a3034b96118a6ed6"
+                "url": "https://github.com/papparazzo/sfw2-validator.git",
+                "reference": "70f0858ae65f57ef71eb1ed207a45521e75438b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/papparazzo/sfw2-validator/zipball/a3e0c48aa608495f8dce0299a3034b96118a6ed6",
-                "reference": "a3e0c48aa608495f8dce0299a3034b96118a6ed6",
+                "url": "https://api.github.com/repos/papparazzo/sfw2-validator/zipball/70f0858ae65f57ef71eb1ed207a45521e75438b4",
+                "reference": "70f0858ae65f57ef71eb1ed207a45521e75438b4",
                 "shasum": ""
             },
             "require": {
@@ -829,7 +841,11 @@
                 "GNU AFFERO GENERAL PUBLIC LICENSE Version 3"
             ],
             "description": "simple validation library",
-            "time": "2024-02-12T04:42:36+00:00"
+            "support": {
+                "source": "https://github.com/papparazzo/sfw2-validator/tree/6.3.0",
+                "issues": "https://github.com/papparazzo/sfw2-validator/issues"
+            },
+            "time": "2024-09-24T16:50:05+00:00"
         }
     ],
     "packages-dev": [],
