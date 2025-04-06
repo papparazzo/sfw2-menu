@@ -8,7 +8,7 @@
 
         "sfw2/core": "^7.0",
         "sfw2/database": "^4.0",
-        "sfw2/routing": "^8.0",
+        "sfw2/render": "^1.0",
         "sfw2/validator": "^6.0",
 
         "psr/http-server-middleware": "^1.0.2"
@@ -20,15 +20,6 @@
     },
     "repositories" : [
         {
-            "type": "vcs",
-            "url": "https://github.com/papparazzo/sfw2-database.git"
-        }, {
-            "type": "vcs",
-            "url": "https://github.com/papparazzo/sfw2-routing.git"
-        }, {
-            "type": "vcs",
-            "url": "https://github.com/papparazzo/sfw2-validator.git"
-        }, {
             "type": "vcs",
             "url": "https://github.com/papparazzo/sfw2-core.git"
         }
