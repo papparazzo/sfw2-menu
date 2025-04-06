@@ -26,23 +26,24 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use SFW2\Database\DatabaseException;
 use SFW2\Database\DatabaseInterface;
-use SFW2\Routing\AbstractController;
-use SFW2\Routing\ResponseEngine;
+use SFW2\Render\RenderInterface;
 
-class PathEdit extends AbstractController
+final class PathEdit
 {
     public function __construct(
-        protected DatabaseInterface $database
+        private DatabaseInterface $database,
+        private RenderInterface $render
     ) {
     }
 
     /**
      * @throws DatabaseException
      */
-    public function index(Request $request, ResponseEngine $responseEngine): Response
+    public function index(Request $request, Response $response, array $data): Response
     {
-        return $responseEngine->render(
+        return $this->render->render(
             $request,
+            $response,
             $this->getController(),
             'SFW2\\Menu\\PathEdit'
         );
@@ -58,7 +59,6 @@ class PathEdit extends AbstractController
             "FROM `{TABLE_PREFIX}_controller_template` AS `controller_template` ";
         return $this->database->select($stmt);
     }
-
 
     /**
      * @throws DatabaseException

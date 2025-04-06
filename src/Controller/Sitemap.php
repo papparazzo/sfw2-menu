@@ -24,19 +24,28 @@ namespace SFW2\Menu\Controller;
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
-use SFW2\Routing\AbstractController;
-use SFW2\Routing\ResponseEngine;
+use SFW2\Database\DatabaseException;
 use SFW2\Menu\Menu\Menu;
+use SFW2\Render\RenderInterface;
 
-class Sitemap extends AbstractController {
-
+final class Sitemap
+{
     public function __construct(
-        protected Menu $menu
+        private readonly Menu $menu,
+        private readonly RenderInterface $render
     ) {
     }
 
-    public function index(Request $request, ResponseEngine $responseEngine): Response
+    /**
+     * @throws DatabaseException
+     */
+    public function index(Request $request, Response $response, array $data): Response
     {
-        return $responseEngine->render($request, ['title'=> 'Sitemap', 'sitemapdata' => $this->menu->getFullMenu()], 'SFW2\\Menu\\Sitemap');
+        return $this->render->render(
+            $request,
+            $response,
+            ['title'=> 'Sitemap', 'sitemapdata' => $this->menu->getFullMenu()],
+            'SFW2\\Menu\\Sitemap'
+        );
     }
 }
