@@ -13,14 +13,13 @@ use SFW2\Core\Permission\PermissionInterface;
 use SFW2\Database\DatabaseException;
 use SFW2\Database\DatabaseInterface;
 
-final class MenuMiddleware implements MiddlewareInterface
+final readonly class MenuMiddleware implements MiddlewareInterface
 {
     public function __construct(
-        private readonly DatabaseInterface $database, // FIXME use repository instead of databaseinterface!
-        private readonly PathMapInterface  $pathmap,
-        private readonly ?PermissionInterface $permission = new PermissionDummy()
-    )
-    {
+        private DatabaseInterface   $database, // FIXME use repository instead of databaseinterface!
+        private PathMapInterface    $pathmap,
+        private PermissionInterface $permission
+    ) {
     }
 
     /**
